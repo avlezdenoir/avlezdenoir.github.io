@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b12">
+  <title>System Console — Avlez dé noir</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="system-page">
+  <div class="noise"></div>
+  <header class="topbar system-topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">A<span>/</span>D</span><span class="brand-name">AVLEZ <b>DÉ NOIR</b></span></a>
+    <nav class="nav"><a class="nav-link" href="index.html">HOME</a><a class="nav-link" href="index.html#about">ABOUT</a><a class="nav-link" href="index.html#pricelist">PRICELIST</a><a class="nav-link active" href="system.html">SYSTEM</a></nav>
+    <span class="topbar-status"><span class="pulse-dot"></span> PRIVATE CONSOLE</span>
+  </header>
+
+  <main class="console-wrap">
+    <div class="console-heading">
+      <div><div class="eyebrow"><span class="eyebrow-line"></span> ADN / CONTROL ENVIRONMENT</div><h1>System <em>console.</em></h1><p>Authorized access to deployments connected to your Bot-Hosting account.</p></div>
+      <a class="button button-ghost" href="index.html">← BACK TO SITE</a>
+    </div>
+
+    <section class="login-panel panel" id="loginPanel">
+      <div class="login-mark">A<span>/</span>D</div>
+      <div class="eyebrow">RESTRICTED ACCESS</div>
+      <h2>Welcome back.</h2>
+      <p>Sign in to access your private deployment console.</p>
+      <form id="loginForm" class="login-form">
+        <label for="adminPassword">ADMIN PASSWORD</label>
+        <input id="adminPassword" type="password" autocomplete="current-password" placeholder="Enter your dashboard password" required>
+        <button class="button button-primary" type="submit">AUTHENTICATE <span>↗</span></button>
+        <div class="form-message" id="loginMessage" role="status"></div>
+      </form>
+      <div class="security-note"><span>◇</span> Protected by server-side authentication. API credentials are never sent to the browser.</div>
+    </section>
+
+    <section class="dashboard hidden" id="dashboard">
+      <div class="dashboard-toolbar">
+        <div><span class="eyebrow">ACCOUNT OVERVIEW</span><h2>Deployments</h2></div>
+        <div class="toolbar-actions"><button class="button button-ghost button-small" id="refreshButton">↻ REFRESH</button><button class="button button-ghost button-small" id="logoutButton">SIGN OUT</button></div>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card"><span>TOTAL DEPLOYMENTS</span><strong id="totalDeployments">—</strong><small>CONNECTED ACCOUNT</small></article>
+        <article class="stat-card"><span>RUNNING</span><strong id="runningDeployments">—</strong><small>ACTIVE PROCESSES</small></article>
+        <article class="stat-card"><span>OFFLINE / OTHER</span><strong id="offlineDeployments">—</strong><small>NOT CURRENTLY RUNNING</small></article>
+      </div>
+      <div class="dashboard-grid">
+        <section class="panel deployment-panel">
+          <div class="panel-heading"><div><span class="eyebrow">YOUR RESOURCES</span><h3>Deployment list</h3></div><span class="live-label"><i></i> LIVE DATA</span></div>
+          <div class="deployment-list" id="deploymentList"><div class="empty-state">Loading deployments...</div></div>
+        </section>
+        <section class="panel detail-panel">
+          <div class="panel-heading"><div><span class="eyebrow">SELECTED RESOURCE</span><h3 id="selectedName">No deployment selected</h3></div><span class="state-pill" id="selectedState">—</span></div>
+          <div class="detail-placeholder" id="detailPlaceholder">Select a deployment to view its status, resource usage, and recent logs.</div>
+          <div class="detail-content hidden" id="detailContent">
+            <div class="resource-grid">
+              <div class="resource-item"><span>CPU</span><strong id="cpuValue">—</strong><div class="meter"><i id="cpuMeter"></i></div></div>
+              <div class="resource-item"><span>MEMORY</span><strong id="memoryValue">—</strong><div class="meter"><i id="memoryMeter"></i></div></div>
+              <div class="resource-item"><span>DISK</span><strong id="diskValue">—</strong><div class="meter"><i id="diskMeter"></i></div></div>
+            </div>
+            <div class="power-actions"><button class="button button-primary button-small" data-power="start">START</button><button class="button button-ghost button-small" data-power="restart">RESTART</button><button class="button button-danger button-small" data-power="stop">STOP</button></div>
+            <div class="logs-heading"><span>RECENT CONSOLE LOGS</span><button id="refreshLogs">REFRESH LOGS ↻</button></div>
+            <pre class="log-output" id="logOutput">Select a deployment.</pre>
+          </div>
+        </section>
+      </div>
+      <p class="dashboard-footnote">This console manages deployments available to the API key owner. Actions are sent to Bot-Hosting using the key's granted scopes.</p>
+    </section>
+  </main>
+  <footer class="footer console-footer"><span>© 2026 AVLEZ DÉ NOIR</span><span>SECURE SYSTEM / ADN-01</span></footer>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/system.js"></script>
+</body>
+</html>

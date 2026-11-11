@@ -1,0 +1,13 @@
+{
+  "name": "avlez-denoir-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Avlez dé noir static site with protected Vercel serverless hosting dashboard",
+  "scripts": {
+    "build:css": "sass assets/scss/main.scss assets/css/main.css --style=compressed",
+    "watch:css": "sass --watch assets/scss/main.scss:assets/css/main.css"
+  },
+  "devDependencies": {
+    "sass": "^1.77.8"
+  }
+}
